@@ -1,13 +1,6 @@
-
-Certainly! To write documentation for an R function using Roxygen2 syntax, you need to include special comment lines starting with #' above your function definition. These comments are then processed by Roxygen2 to generate the .Rd files in the man/ directory of your R package, which are used for the function's help page.
-
-Here's a general template for documenting an R function with Roxygen2, tailored to fit a hypothetical function based on the previous discussion. You'll need to adjust the content to accurately reflect your function's purpose, parameters, return values, and examples.
-
-r
-Copy code
-#' Calculate Metrics for Survival Analysis
+#' Calculate Mediation effect for Survival Data
 #'
-#' This function performs a survival analysis based on input data including exposure, mediation, and event data. It uses penalized Cox proportional hazards models and other statistical methods to calculate various metrics, including rho2w and SOSw values.
+#' This function performs a mediation analysis of survival data based on input data including exposure, mediation, and event data. It uses penalized Cox proportional hazards models and other statistical methods to calculate various metrics, including rho2w and SOSw values.
 #'
 #' @param p A numeric value indicating the proportion of the data to be used for training. For example, 0.7 for 70% of the data.
 #' @param exp A numeric matrix or vector representing the exposure data.
