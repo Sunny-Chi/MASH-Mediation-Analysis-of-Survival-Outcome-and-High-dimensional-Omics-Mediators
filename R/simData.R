@@ -1,3 +1,38 @@
+#' Simulate Survival Data
+#'
+#' This function simulates survival data based on specified parameters. It can generate data
+#' with or without a covariance matrix. When a covariance matrix is provided, it delegates
+#' the data generation to `simdata_cov`. Otherwise, it creates a covariance matrix among
+#' all covariates and generates survival times, censoring times, and event indicators.
+#' The function also supports generating correlated covariate vectors and adjusting the
+#' scale and shape parameters for survival time calculation.
+#'
+#' @param n Integer, the number of observations (sample size).
+#' @param m Integer, the number of covariates to generate.
+#' @param a Numeric, the base value for generating the covariance matrix.
+#' @param b Numeric vector, coefficients for the covariates.
+#' @param r Numeric, the coefficient for the primary covariate.
+#' @param ppp Integer, total number of predictors including covariates.
+#' @param c Numeric, maximum censoring time.
+#' @param ll Numeric, maximum follow-up time.
+#' @param seed Integer, seed for random number generation to ensure reproducibility.
+#' @param cov Optional matrix, a covariance matrix. If provided, `simdata_cov` is used.
+#' @param g Optional, additional parameters for `simdata_cov`.
+#' @param lll Optional, additional parameters for `simdata_cov`.
+#' @return A list containing:
+#'   \itemize{
+#'     \item \code{dat}: A matrix with the simulated dataset including survival times, covariates, and event indicators.
+#'     \item \code{MT}: Matrix of covariates.
+#'     \item \code{llt}: Proportion of observations with survival times at maximum follow-up time.
+#'     \item \code{cr}: Censoring rate.
+#'   }
+#' @examples
+#' simulated_data <- simdata(n=100, m=2, a=0.5, b=c(0.3, 0.5), r=1.2, ppp=5, seed=123)
+#' str(simulated_data)
+#' @export
+
+
+
 simdata<-function(n=n,m=m,a=a,b=bb,r=r,ppp=ppp,c=100000000,ll=10000000,seed=1,cov=NULL,g=NULL,lll=NULL){
 
   if(is.null(cov)==FALSE){
